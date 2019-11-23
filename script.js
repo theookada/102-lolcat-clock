@@ -7,6 +7,9 @@ var napTime = lunchTime + 2; // 2PM
 var time = new Date().getHours();
 var isPartyTime = false;
 var partyTimeButton = document.getElementById("partyTimeButton");
+var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
+var lunchTimeSelector = document.getElementById("lunchTimeSelector");
+var napTimeSelector = document.getElementById("napTimeSelector");
 
 var updateClock = function ()
 {
@@ -19,7 +22,7 @@ var updateClock = function ()
     messageText = "IZ PARTEE TIME!!";
 	image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat4.jpg";
 	} else if (time == napTime) {
-    messageText = "IZ NAP TIME…";
+    messageText = "IZ NAP TIME...";
 	image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat3.jpg";
 	} else if (time == lunchTime) {
     messageText = "IZ NOM NOM NOM TIME!!";
@@ -96,4 +99,18 @@ var partyEvent = function () {
 		partyTimeButton.style.backgroundColor = "#222";
 	}
 };
+
+var wakeUpEvent = function() {
+	wakeupTime = wakeUpTimeSelector.value;
+};
+var lunchEvent = function() {
+	lunchTime = lunchTimeSelector.value;
+};
+var napEvent = function() {
+	napTime = napTimeSelector.value;
+};
+
 partyTimeButton.addEventListener('click', partyEvent);
+wakeUpTimeSelector.addEventListener('change', wakeUpEvent);
+lunchTimeSelector.addEventListener('change', lunchEvent);
+napTimeSelector.addEventListener('change', napEvent);
